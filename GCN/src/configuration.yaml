@@ -4,3 +4,4 @@
 epochs : 200
 lr : 0.01
 weight_decay : 0.0005
+num_hidden : 16

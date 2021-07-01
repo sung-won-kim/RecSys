@@ -11,10 +11,10 @@ from layers import GCN
 # net
 # ========================================
 class GCNNet(torch.nn.Module):
-  def __init__(self, dataset):
+  def __init__(self, dataset,num_hidden):
     super(GCNNet, self).__init__()
-    self.conv1 = GCN(dataset.num_node_features, 16)
-    self.conv2 = GCN(16, dataset.num_classes)
+    self.conv1 = GCN(dataset.num_node_features, num_hidden)
+    self.conv2 = GCN(num_hidden, dataset.num_classes)
 
   def forward(self, data):
     x, edge_index = data.x, data.edge_index

@@ -27,6 +27,7 @@ with open('configuration.yaml') as f:
 epochs = conf['epochs']
 lr = conf['lr']
 weightDecay = conf['weight_decay']
+num_hidden = conf['num_hidden']
 
 # ========================================
 # Training settings
@@ -40,6 +41,8 @@ parser.add_argument('--dataset', required = False, default='cora',
                     help='type of data (citeceer/cora/pubmed/nell) default = citeceer')
 parser.add_argument('--weightdecay', required = False, type=float, default=weightDecay,
                     help='weight_decay (default = 5e-04)')
+parser.add_argument('--hidden', required = False, type=int, default=num_hidden,
+                    help='# of hidden (default = 16)')
 args = parser.parse_args()
 
 # ========================================
@@ -51,7 +54,7 @@ dataset = load_data(args.dataset)
 # Load model
 # ========================================
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
-model = GCNNet(dataset).to(device)
+model = GCNNet(dataset,args.hidden).to(device)
 data = dataset[0].to(device)
 optimizer = torch.optim.Adam(model.parameters(), lr=args.lr, weight_decay=args.weightdecay)
 
@@ -105,7 +108,6 @@ def main():
   t_total = time.time()
   for epoch in range(args.epochs):
       acc_train, loss_train, loss_val, acc_val = train(epoch)
-      print(loss_train.item())
       writer.add_scalar('train_loss/epoch', loss_train.item(), epoch)   
   print("Optimization Finished!")
   print("Total time elapsed: {:.4f}s".format(time.time() - t_total))
