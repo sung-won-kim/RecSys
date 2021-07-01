@@ -31,7 +31,7 @@ python train.py --dataset citeseer
 ```  
 - Cora
 ```bash  
-python train.py --dataset citeseer
+python train.py --dataset cora
 ```  
 - PubMed
 ```bash  
