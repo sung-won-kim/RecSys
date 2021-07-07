@@ -40,7 +40,7 @@ parser.add_argument('--hidden', required = False, type=int, default=num_hidden,
                     help='# of hidden (default = 8)')
 parser.add_argument('--attention', required = False, type=int, default=num_attention,
                     help='# of attention (default = 8)')         
-parser.add_argument('--dropout', required = False, type=int, default=dropout,
+parser.add_argument('--dropout', required = False, type=float, default=dropout,
                     help='dropout percentage (default = 0.6)')                         
 args = parser.parse_args()
 # ========================================
