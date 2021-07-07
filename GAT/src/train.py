@@ -1,14 +1,14 @@
-import time
-import argparse
-import yaml
-import numpy as np
-import torch
+from torch_geometric.data import Data
+from torch_geometric.nn import GATConv
+import torch_geometric.transforms as T
 import torch.nn.functional as F
-import torch.optim as optim
+import torch
+import argparse
+import time
+import yaml
+import matplotlib.pyplot as plt
 from utils import load_data, accuracy
-import utils
-from torch_geometric.datasets import Planetoid
-from models import GCNNet
+from models import GAT
 from tensorboardX import SummaryWriter
 
 # ========================================
@@ -20,7 +20,9 @@ with open('configuration.yaml') as f:
 epochs = conf['epochs']
 lr = conf['lr']
 weightDecay = conf['weight_decay']
-num_hidden = conf['num_hidden']
+num_hidden = conf['hidden']
+num_attention = conf['attention']
+dropout = conf['dropout']
 
 # ========================================
 # Training settings
@@ -35,43 +37,47 @@ parser.add_argument('--dataset', required = False, default='cora',
 parser.add_argument('--weightdecay', required = False, type=float, default=weightDecay,
                     help='weight_decay (default = 5e-04)')
 parser.add_argument('--hidden', required = False, type=int, default=num_hidden,
-                    help='# of hidden (default = 16)')
+                    help='# of hidden (default = 8)')
+parser.add_argument('--attention', required = False, type=int, default=num_attention,
+                    help='# of attention (default = 8)')         
+parser.add_argument('--dropout', required = False, type=int, default=dropout,
+                    help='dropout percentage (default = 0.6)')                         
 args = parser.parse_args()
-
 # ========================================
 # tensorboard
 # ========================================
-writer = SummaryWriter(log_dir="runs/GCN_dataset({})_lr({})_epoch({})_hidden({})".format
-                                    (args.dataset, args.lr, args.epochs, args.hidden))
+writer = SummaryWriter(log_dir="runs/GAT_dataset({})_lr({})_epoch({})_hidden({})_attention({})_dropout({})".format
+                                    (args.dataset, args.lr, args.epochs, args.hidden, args.attention, args.dropout))
 
 # ========================================
 # Load data
 # ========================================
 dataset = load_data(args.dataset)
 
+device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
+device = "cpu"
+
 # ========================================
 # Load model
 # ========================================
-device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
-model = GCNNet(dataset,args.hidden).to(device)
+model = GAT(dataset, args.hidden, args.attention, args.dropout).to(device)
 data = dataset[0].to(device)
 optimizer = torch.optim.Adam(model.parameters(), lr=args.lr, weight_decay=args.weightdecay)
 
 # ========================================
 # Train
 # ========================================
-def train(epoch):
+def train(epoch): 
   t = time.time()
   model.train()
   optimizer.zero_grad()
   out = model(data)
   loss_train = F.nll_loss(out[data.train_mask], data.y[data.train_mask])
-  _, pred = model(data).max(dim=1)
 
   acc_train = accuracy(out[data.train_mask], data.y[data.train_mask])
   loss_train.backward()
   optimizer.step()
-
+    
   model.eval()
   out = model(data)
 
@@ -98,7 +104,6 @@ def test():
   acc = accuracy(out[data.test_mask], data.y[data.test_mask])
   print('Accuracy: {:.4f}'.format(acc))
 
-
 # ========================================
 # Implementation
 # ========================================
@@ -119,7 +124,3 @@ def main():
 
 if __name__ =="__main__":
   main()
-
-# ========================================
-# tensorboard
-# ========================================

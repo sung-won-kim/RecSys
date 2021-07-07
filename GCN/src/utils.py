@@ -1,5 +1,5 @@
 from torch_geometric.datasets import Planetoid
-from torch_geometric.datasets import Amazon
+# from torch_geometric.datasets import Amazon
 import math
 import torch
 
