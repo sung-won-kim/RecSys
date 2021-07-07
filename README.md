@@ -20,7 +20,9 @@ conda env create -f 'environment.yaml'
 ---  
 
 ### Limitations and Future Work
-![스크린샷 2021-07-07 오전 10 26 11](https://user-images.githubusercontent.com/37684658/124686267-c190e700-df0d-11eb-89c3-97a520bd9134.png)
+![스크린샷 2021-07-07 오전 10 26 11](https://user-images.githubusercontent.com/37684658/124686267-c190e700-df0d-11eb-89c3-97a520bd9134.png)  
+> In all of the spectral approaches, the learned filters depend on the Laplacian eigenbasis, which depends on the graph structure. Thus, a model trained on a specific structure can not be directly applied to a graph with a different structure.  
+> (Guillem Cucurull et al. (2018). “Graph Attention Networks”. arXiv:1710.10903v3)
 
 --- 
 
