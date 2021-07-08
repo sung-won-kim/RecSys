@@ -176,4 +176,4 @@ dependencies:
   - zstd=1.4.9=ha95c52a_0
   - pip:
     - torch-tb-profiler==0.2.0
-prefix: /home/barlaw/anaconda3/envs/dsail_gcn
+prefix: /home/swk/anaconda3/envs
