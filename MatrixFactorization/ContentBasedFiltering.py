@@ -15,7 +15,7 @@ parser.add_argument('--title', required = False, default= 'The Dark Knight Rises
 args = parser.parse_args()
 
 # ========================================
-# Loading Dataset
+# Load Dataset
 # ========================================
 # load movies_metadata.csv (https://www.kaggle.com/rounakbanik/the-movies-dataset)
 def data_load(dataset):
