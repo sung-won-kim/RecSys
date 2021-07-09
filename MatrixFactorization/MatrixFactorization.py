@@ -3,7 +3,6 @@ import numpy as np
 import matplotlib.pyplot as plt
 import argparse
 from sklearn.decomposition import TruncatedSVD
-from scipy.sparse.linalg import svds
 import warnings
 warnings.filterwarnings("ignore")
 
