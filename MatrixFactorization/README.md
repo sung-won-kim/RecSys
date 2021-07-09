@@ -64,8 +64,8 @@ Name: The Dark Knight, dtype: float64
 ---  
 ## MatrixFactorization.py  
 Implement of basic level of MatrixFactorization  
-using SVD(Singualr Value Decomposition) with Pearson Correlation Coefficient 
-item(영화)와 비슷한 items(영화들)을 찾아주는 목적
+using SVD(Singualr Value Decomposition) with Pearson Correlation Coefficient  
+___item(영화)와 비슷한 items(영화들)을 찾아주는 목적___
 ```bash
 python MatrixFactorization.py --title '영화제목'
 ```
@@ -92,8 +92,8 @@ Name: Back to the Future, dtype: float64
 ---  
 ## MatrixFactorization2.py  
 Implement of basic level of MatrixFactorization  
-using SVD(Singualr Value Decomposition) 
-user(사용자)에게 items(영화)를 추천해주는 목적 
+using SVD(Singualr Value Decomposition)  
+___user(사용자)에게 items(영화)를 추천해주는 목적___
 ```bash
 python MatrixFactorization2.py --userid 132
 ```
