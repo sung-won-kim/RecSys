@@ -70,7 +70,7 @@ python MatrixFactorization.py --title '영화제목'
 ```
 ### Example  
 ```bash
-python MatrixFactorization.py --title --title 'Back to the Future'
+python MatrixFactorization.py --title 'Back to the Future'
 ```
 
 ### Results  
