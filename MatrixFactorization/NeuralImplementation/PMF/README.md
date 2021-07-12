@@ -1,14 +1,17 @@
-# ContentBasedFiltering.py  
+# Probabilistic Matrix Factorization (PMF)
 Implementation of Probabilistic Matrix Factorization (PMF) 
 
+## Posterior Function  
+![image](https://user-images.githubusercontent.com/37684658/125321409-9b3cd280-e377-11eb-9d2b-de9b40eba87f.png)
+
 ## Objective Function  
-사진첨부
+![image](https://user-images.githubusercontent.com/37684658/125320993-37b2a500-e377-11eb-97e0-9667f4922984.png)
 
-
+## Usage  
 ```bash
 python train.py
 ```
-### initial configuration  
+> initial configuration  
 epochs : 200  
 lr : 0.01  
 k : 5  
