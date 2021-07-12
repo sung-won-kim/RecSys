@@ -1,2 +1,4 @@
 *.ipynb
 *.barlaw
+ratings.csv
+user_10466_movies_5084_ratings.csv
