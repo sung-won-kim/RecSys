@@ -11,6 +11,7 @@ from utils import binary_acc
 import time
 import argparse
 import yaml
+from tensorboardX import SummaryWriter
 
 # ========================================
 # configuration.yaml
@@ -35,6 +36,12 @@ parser.add_argument('--k', required = False, type=int, default=k,
 parser.add_argument('--verbose', required = False, default=True,
                     help='verbose(default = True)')                    
 args = parser.parse_args()
+
+# ========================================
+# tensorboard
+# ========================================
+writer = SummaryWriter(log_dir="runs/FM_lr({})_epoch({})_k({})".format
+                                    (args.lr, args.epochs, args.k))
 
 # ========================================
 # Load data & Preprocessing
@@ -85,10 +92,15 @@ for epoch in range(args.epochs):
    for i, input in enumerate(X_test):
       y_pred[i] = model(input)
    acc = binary_acc(y_pred,Y_test).item()
+   writer.add_scalar('total_loss/epoch', total_loss.item(), epoch)
+   writer.add_scalar('test_acc/epoch', acc, epoch)
+   writer.add_scalar('time/epoch', time.time()-t, epoch)
 
    if(args.verbose == True):
       if(epoch % 10 == 0):
          print(f'Iteration : {epoch} -- Total loss : {total_loss:.4f}, Test accuracy : {acc}, Time : {time.time()-t:.4f}')
+      
+   writer.close()
 
 
 
