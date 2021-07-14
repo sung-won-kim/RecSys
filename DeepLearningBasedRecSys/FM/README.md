@@ -21,7 +21,7 @@ __[Breast Cancer]('https://scikit-learn.org/stable/modules/generated/sklearn.dat
 
 ### Example  
 ```bash
-$ python tarin.py --epochs 300 --k 10 --lr 0.001
+$ python train.py --epochs 300 --k 10 --lr 0.001
 ```
 
 ### Results  
