@@ -40,13 +40,15 @@ Iteration : 90 -- Total loss : 74.4560, Test accuracy : 92.0, Time : 12.4500
 ```
 |k|total loss|accuracy|time|  
 |---|---|---|---|
-|5|74.4560|92.0|12.4500|
-|10|72.1391|98.0|13.5061|
-|15|53.5665|94.0|14.0932|
-|20|46.1793|94.0|14.8832|
-|25|48.6053|96.0|15.9128|
-|30|45.6153|95.0|16.3316|
-> epochs : 100, lr : 0.001
+|5|74.4560|94.3|12.4500|
+|10|72.1391|94.2|13.5061|
+|15|53.5665|95.8|14.0932|
+|20|46.1793|95.6|14.8832|
+|25|48.6053|95.1|15.9128|
+|30|45.6153|94.7|16.3316|
+> epochs : 100, lr : 0.001, average of 10 implementations
+
+___"In sparse settings, typically a small k should be chosen because there is not enough data to estimate complex interactions W. Restricting k - and thus the expressiveness of the FM - leads to better generalization and thus improved interaction matrices under sparsity"___
 
 ### References  
 Rendle, S. (2010, December). Factorization machines. In 2010 IEEE International conference on data mining (pp. 995-1000). IEEE.  
