@@ -1,6 +1,10 @@
 # Factorization Machine (FM)
 Implementation Binary Classification Model with 2-way Factorization Machine  
 
+![스크린샷 2021-07-16 오전 1 07 40](https://user-images.githubusercontent.com/37684658/125820837-78b8030c-7973-46fb-885e-742aa3346b77.png)
+![스크린샷 2021-07-16 오전 1 07 53](https://user-images.githubusercontent.com/37684658/125820854-2f166b17-9d1a-4a35-9314-f77f7474f345.png)
+
+
 ### Dataset  
 __[Breast Cancer]('https://scikit-learn.org/stable/modules/generated/sklearn.datasets.load_breast_cancer.html')__
 
