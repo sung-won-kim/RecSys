@@ -54,5 +54,14 @@ Iteration : 90 -- Total loss : 74.4560, Test accuracy : 92.0, Time : 12.4500
 
 ___"In sparse settings, typically a small k should be chosen because there is not enough data to estimate complex interactions W. Restricting k - and thus the expressiveness of the FM - leads to better generalization and thus improved interaction matrices under sparsity"___
 
+### Conclusion and Future Work  
+__Contrast to SVMs__  
+1) FMs areable to estimate parameters under huge sparsity  
+2) The model equation is linear and depends only on the model parameters  
+3) Parameters can be optimized directly in the primal  
+
+__Moreover,__  
+1) Simply by using the right indicators in the input feature vector, FMs are identical or very similar to many of the specialized models that are applicable only for a specific task.  
+
 ### References  
 Rendle, S. (2010, December). Factorization machines. In 2010 IEEE International conference on data mining (pp. 995-1000). IEEE.  
