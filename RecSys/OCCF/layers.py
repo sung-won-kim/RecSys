@@ -103,6 +103,10 @@ class occf():
 # ========================================
 # ALS (bottleneck 반영)
 # ========================================
+# ========================================
+# ALS bottleneck-1 : 
+# non-zero is not yet implemented
+# ========================================
    def als_user_bn(self,y_t_y):
       V_t = np.transpose(self._V)
       for m in range(self._num_users):
@@ -119,6 +123,10 @@ class occf():
          part_2 = U_t.dot(C_i).dot(self._P[:,n])
          self._V[n,:] = np.dot(part_1,part_2)
 
+# ========================================
+# ALS bottleneck-2 : 
+# non-zero is partially implemented
+# ========================================
    def als_user_bn_edited(self,y_t_y):
       V_t = np.transpose(self._V)
  
