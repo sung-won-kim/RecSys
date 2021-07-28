@@ -100,5 +100,5 @@ for epoch in range(args.epochs):
    auc = roc_auc_score(Y_test, pred.cpu().detach().numpy())
 
    if(args.verbose == True):
-      if(epoch % 1 == 0):
-         print(f'Iteration : {epoch} -- Total loss : {total_loss:.4f}, Test accuracy : {auc:.3f}, Time : {time.time()-t:.4f}')
+      if((epoch+1) % 1 == 0):
+         print(f'Iteration : {epoch+1} -- Total loss : {total_loss:.4f}, Test accuracy : {auc:.3f}, Time : {time.time()-t:.4f}')
