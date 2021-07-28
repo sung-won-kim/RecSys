@@ -10,6 +10,10 @@ Semi-supervised classification with Graph Convolutional Networks. Thomas N.Kipf,
 Graph Attention Networks. Petar Velickovic et al. ICLR (2018)  
 - [`GNN / GAT`](https://github.com/kpiswon/2021_DSAIL_summer_internship/tree/main/GNN/GAT)  
 
+> ### VAE  
+Kingma, Diederik P., and Max Welling. "Auto-encoding variational bayes." arXiv preprint arXiv:1312.6114 (2013)  
+- [`GNN / VAE`](https://github.com/kpiswon/2021_DSAIL_summer_internship/tree/main/GNN/VAE)  
+
 ---
 ##  Matrix Factorization Based RecSys  
 > ### FM
