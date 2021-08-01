@@ -33,3 +33,8 @@ Hu, Yifan, Yehuda Koren, and Chris Volinsky. "Collaborative filtering for implic
 > ### Wide&Deep  
 Cheng, Heng-Tze, et al. "Wide & deep learning for recommender systems." Proceedings of the 1st workshop on deep learning for recommender systems. 2016.  
 - [`RecSys / WideAndDeep`](https://github.com/kpiswon/2021_DSAIL_summer_internship/tree/main/RecSys/WideAndDeep)  
+
+## Knowledge Graph Embedding  
+> ### TransE  
+Bordes, Antoine, et al. "Translating Embeddings for Modeling Multi-relational Data"  
+- [`RecSys / transE`] (https://github.com/kpiswon/2021_DSAIL_summer_internship/tree/main/RecSys/transE)  
