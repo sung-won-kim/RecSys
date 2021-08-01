@@ -107,7 +107,7 @@ for epoch in range(args.epochs):
       optimizer.step()
 
    if args.verbose == True and epoch % 1 == 0:
-      print(f'Epoch : {epoch}/{args.epochs} , loss : {total_loss/train_dataset.__len__():.4f}, positive_dt : {total_positive_dt/train_dataset.__len__():.4f}, negative_dt : {total_negative_dt/train_dataset.__len__():.4f}, Time : {time.time()-t:.4f}')
+      print(f'Epoch : {epoch+1}/{args.epochs} , loss : {total_loss/train_dataset.__len__():.4f}, positive_dt : {total_positive_dt/train_dataset.__len__():.4f}, negative_dt : {total_negative_dt/train_dataset.__len__():.4f}, Time : {time.time()-t:.4f}')
    
    # ========================================
    # test
