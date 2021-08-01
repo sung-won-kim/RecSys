@@ -61,7 +61,7 @@ device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 model.to(device)
 
 # ========================================
-# Load Model
+# train
 # ========================================
 t = time.time()
 for epoch in range(args.epochs):
