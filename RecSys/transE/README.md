@@ -20,13 +20,13 @@ WN18
 python train.py
 ```
 > __Initial Configuration__  
-> epochs : 20  
-> lr : 0.001  
-> batch_size : 200  
-> k : 100 (embedding dim.)
-> margin : 1.0  
-> norm : 1 (L1 : 1, L2 : 2)
-> verbose : True  
+> __epochs__ : 20  
+> __lr__ : 0.001  
+> __batch_size__ : 200  
+> __k__ : 100 (embedding dim.)
+> __margin__ : 1.0  
+> __norm__ : 1 (L1 : 1, L2 : 2)  
+> __verbose__ : True  
 
 ### Results  
 ```bash
