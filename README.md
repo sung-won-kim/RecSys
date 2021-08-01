@@ -39,4 +39,4 @@ Cheng, Heng-Tze, et al. "Wide & deep learning for recommender systems." Proceedi
 ## Knowledge Graph Embedding  
 > ### TransE  
 Bordes, Antoine, et al. "Translating Embeddings for Modeling Multi-relational Data"  
-- [`RecSys / transE`] (https://github.com/kpiswon/2021_DSAIL_summer_internship/tree/main/RecSys/transE)  
+- [`RecSys / transE`](https://github.com/kpiswon/2021_DSAIL_summer_internship/tree/main/RecSys/transE)  
