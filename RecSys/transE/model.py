@@ -17,6 +17,9 @@ class TransE(nn.Module):
       self.entity_embed = self.entity_embedding()
       self.relation_embed = self.relation_embedding()
 
+   # ========================================
+   # init entity, relation embedding
+   # ========================================
    def entity_embedding(self):
       entity_embedding = nn.Embedding(num_embeddings= self.num_entities, embedding_dim= self.dim)
       uniform_range = 6/np.sqrt(self.dim)
@@ -29,10 +32,16 @@ class TransE(nn.Module):
       relation_embedding.weight.data.uniform_(-uniform_range, uniform_range)
       return relation_embedding
 
+   # ========================================
+   # MarginRankingLoss
+   # ========================================
    def loss(self, positive_dt, negative_dt):
-      target = torch.randn(1).sign().to(self.device)
+      target = torch.randn(1).sign().to(self.device) # margin 
       return self.criterion(positive_dt, negative_dt, target).requires_grad_()
 
+   # ========================================
+   # dissimilarity measure
+   # ========================================
    def dissimilarity(self, triplets):
       heads = triplets[:,0]
       relations = triplets[:,1]

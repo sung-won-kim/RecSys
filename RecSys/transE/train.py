@@ -45,7 +45,6 @@ parser.add_argument('--verbose', required = False, type = bool ,default=True,
                   
 args = parser.parse_args()
 
-
 # ========================================
 # Load Data
 # ========================================
@@ -86,14 +85,14 @@ for epoch in range(args.epochs):
 
       positive_triplets = torch.stack((head,relation,tail), dim = 1)
 
-      # negative triplets
+      # ========================================
+      # Negative Triplets
+      # ========================================
       head_or_tail = torch.randint(high=2, size=head.size(), device = device)
       random_entities = torch.randint(high=len(np.unique(train_df.head_word)), size = head.size(), device = device)
       head_exchange = torch.where(head_or_tail == 1, random_entities, head)
       tail_exchange = torch.where(head_or_tail == 0, random_entities, tail)
-
       negative_triplets = torch.stack((head_exchange, relation, tail_exchange), dim = 1)
-
 
       loss, positive_dt, negative_dt = model(positive_triplets, negative_triplets)
 
