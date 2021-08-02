@@ -55,7 +55,7 @@ Epoch : 3/20 -- batch : 50000/60000, loss : 158.2676
 ```
 
 ### To Do  
-- [ ] Problem with loss value being nan during learning  
+- [X] Problem with loss value being nan during learning  
 ```bash
 Epoch : 13/20 -- batch : 0/60000, loss : 149.1316
 Epoch : 13/20 -- batch : 10000/60000, loss : 153.3385
@@ -77,7 +77,19 @@ Epoch : 15/20 -- batch : 20000/60000, loss : nan
 Epoch : 15/20 -- batch : 30000/60000, loss : nan
 Epoch : 15/20 -- batch : 40000/60000, loss : nan
 Epoch : 15/20 -- batch : 50000/60000, loss : nan
+```  
+SOLVED : 
+If 0 is entered in torch.log(), it becomes `-inf` and causes a problem. Fixed the problem by adding eps
+```python
+def loss_function(x,x_hat,mu,sigma):
+   eps = 1e-20 # nan 뜨는 문제 해결위해서 +1e-20 더해줌
+   RCE = torch.sum(x.view(-1,784).mul(torch.log(x_hat+eps)) + (1 - x.view(-1,784)).mul(torch.log(1-x_hat+eps))) # binary cross entropy
+   KLD = 0.5 * torch.sum(mu.pow(2) + sigma.pow(2) - torch.log(sigma.pow(2)+eps) - 1)
+   ELBO = RCE - KLD
+   loss = -ELBO
+   return loss
 ```
+
 - [ ] Try generating data using decoder
 
 ### References  
