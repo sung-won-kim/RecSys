@@ -4,24 +4,27 @@ Paper introduces a stochastic variational inference and learning algorithm that 
 ![image](https://user-images.githubusercontent.com/37684658/127351477-91d37e1d-e774-4d9f-a87c-9cc6192efad2.png)
 > Hwalseok Lee, Autoencoders : A way for Unsupervised Learning of Nonlinear Manifold
 
-
+---  
 ### Dataset  
-MNIST
+MNIST  
+
+---  
 
 ### Usage  
+#### Train  
 ```bash
 python train.py
 ```
 > __Initial Configuration__  
-> `epochs` : 20  
-> `lr` : 0.001  
-> `batch_size` : 100  
-> `n_input` : 784  
-> `n_hidden1` : 512  
-> `n_hidden2` : 256  
-> `n_z` : 2    
+> __`epochs`__ : 20  
+> __`lr`__ : 0.001  
+> __`batch_size`__ : 100  
+> __`n_input`__ : 784  
+> __`n_hidden1`__ : 512  
+> __`n_hidden2`__ : 256  
+> __`n_z`__ : 2    
 
-### Results  
+#### Results  
 ```bash  
 $ python train.py  
 Epoch : 0/20 -- batch : 0/60000, loss : 549.7419
@@ -52,7 +55,27 @@ Epoch : 3/20 -- batch : 30000/60000, loss : 153.1563
 Epoch : 3/20 -- batch : 40000/60000, loss : 151.6105
 Epoch : 3/20 -- batch : 50000/60000, loss : 158.2676
 ...
+
+** model saved at ./model/model.pt **
+
 ```
+---  
+
+#### Generation  
+To generate samples, just run  
+```bash
+python run.py
+```
+> __Initial Configuration__  
+> __`num_predict`__ : 64 (number of samples to generate)  
+> __`fname`__ : 'sample.png' (file name to be saved)  
+
+#### Results  
+__model__ : total test loss = 141.5450  
+![스크린샷 2021-08-03 오전 12 08 22](https://user-images.githubusercontent.com/37684658/127883269-8fccd036-18e3-4a1b-b821-baaa9feef8a7.png)
+
+
+---  
 
 ### To Do  
 - [X] Problem with loss value being nan during learning  
@@ -90,7 +113,7 @@ def loss_function(x,x_hat,mu,sigma):
    return loss
 ```
 
-- [ ] Try generating data using decoder
+- [X] Try generating data using decoder
 
 ### References  
 [1] Kingma, Diederik P., and Max Welling. "Auto-encoding variational bayes." arXiv preprint arXiv:1312.6114 (2013)  
