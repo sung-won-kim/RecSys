@@ -1,4 +1,4 @@
-# Auto-Encoding Variational Bayes - Pytorch
+# Auto-Encoding Variational Bayes (VAE) - Pytorch
 Paper introduces a stochastic variational inference and learning algorithm that scales to large datasets and, under some mild differentiability conditions, even works in the intractable case.  
 
 ![image](https://user-images.githubusercontent.com/37684658/127351477-91d37e1d-e774-4d9f-a87c-9cc6192efad2.png)
