@@ -5,3 +5,4 @@ user_10466_movies_5084_ratings.csv
 *.pkl
 __pycache__/
 mnist_data/
+*.pt
