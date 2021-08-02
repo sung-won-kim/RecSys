@@ -86,7 +86,7 @@ for epoch in range(args.epochs):
       optimizer.step()
       
       if args.verbose == True and batch_idx % 100 == 0:
-         print(f'Epoch : {epoch+1}/{args.epochs} -- batch : {batch_idx * len(data)}/{len(train_loader.dataset)}, loss : {loss.item()/len(data):.4f}')
+         print(f'Epoch : {epoch+1}/{args.epochs} -- batch : {batch_idx * len(data)}/{len(train_loader.dataset)}')
 
    model.eval()
    test_loss = 0
@@ -98,4 +98,9 @@ for epoch in range(args.epochs):
          test_loss += loss_function(data, x_hat, mu, sigma).item()
 
    test_loss /= len(test_loader.dataset)
-   print(f'==== Test loss: {test_loss:.4f}')
+   print(f'==== Train loss : {loss.item()/len(data):.4f}, Test loss: {test_loss:.4f}')
+
+torch.save(model.state_dict(), './model/vae.pt')
+print('')
+print('** model saved at ./model/model.pt **')
+print('')

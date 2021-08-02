@@ -2,6 +2,7 @@ import torch
 import torch.nn as nn
 import torch.nn.functional as F
 
+
 class VAE(nn.Module):
    def __init__(self, n_input, n_hidden1, n_hidden2, n_output):
       super(VAE, self).__init__()
@@ -41,7 +42,6 @@ class VAE(nn.Module):
       return self.bernoulli_decoder(z), mu, sigma 
 
 def loss_function(x,x_hat,mu,sigma):
-   # RCE = F.binary_cross_entropy(x_hat, x.view(-1,784), reduction='sum')
    eps = 1e-20 # nan 뜨는 문제 해결위해서 +1e-20 더해줌
    RCE = torch.sum(x.view(-1,784).mul(torch.log(x_hat+eps)) + (1 - x.view(-1,784)).mul(torch.log(1-x_hat+eps))) # binary cross entropy
    KLD = 0.5 * torch.sum(mu.pow(2) + sigma.pow(2) - torch.log(sigma.pow(2)+eps) - 1)
