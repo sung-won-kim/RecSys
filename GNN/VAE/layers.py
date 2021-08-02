@@ -38,12 +38,13 @@ class VAE(nn.Module):
    def forward(self, x):
       mu, sigma = self.gaussian_encoder(x.view(-1, self.n_input))
       z = self.gaussian_sampling(mu, sigma)
-      return self.bernoulli_decoder(z), mu, sigma
+      return self.bernoulli_decoder(z), mu, sigma 
 
 def loss_function(x,x_hat,mu,sigma):
    # RCE = F.binary_cross_entropy(x_hat, x.view(-1,784), reduction='sum')
-   RCE = torch.sum(x.view(-1,784).mul(torch.log(x_hat)) + (1 - x.view(-1,784)).mul(torch.log(1-x_hat)))
-   KLD = 0.5 * torch.sum(mu.pow(2) + sigma.pow(2) - torch.log(sigma.pow(2)) - 1)
+   eps = 1e-20 # nan 뜨는 문제 해결위해서 +1e-20 더해줌
+   RCE = torch.sum(x.view(-1,784).mul(torch.log(x_hat+eps)) + (1 - x.view(-1,784)).mul(torch.log(1-x_hat+eps))) # binary cross entropy
+   KLD = 0.5 * torch.sum(mu.pow(2) + sigma.pow(2) - torch.log(sigma.pow(2)+eps) - 1)
    ELBO = RCE - KLD
    loss = -ELBO
    return loss

@@ -10,6 +10,9 @@ import yaml
 import time
 import argparse
 
+# for debug
+import math
+
 
 # ========================================
 # configuration.yaml
@@ -73,14 +76,17 @@ for epoch in range(args.epochs):
       optimizer.zero_grad()
 
       x_hat, mu, sigma = model(data)
-      loss = loss_function(data, x_hat, mu, sigma)
+      loss_debug = loss_function(data, x_hat, mu, sigma)
+
+      loss = loss_debug
 
       loss.backward()
+      
       train_loss += loss.item()
       optimizer.step()
       
       if args.verbose == True and batch_idx % 100 == 0:
-         print(f'Epoch : {epoch}/{args.epochs} -- batch : {batch_idx * len(data)}/{len(train_loader.dataset)}, loss : {loss.item()/len(data):.4f}')
+         print(f'Epoch : {epoch+1}/{args.epochs} -- batch : {batch_idx * len(data)}/{len(train_loader.dataset)}, loss : {loss.item()/len(data):.4f}')
 
    model.eval()
    test_loss = 0
