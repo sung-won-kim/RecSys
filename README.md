@@ -21,7 +21,7 @@ Kingma, Diederik P., and Max Welling. "Auto-encoding variational bayes." arXiv p
 > ### FM
 Rendle, S. (2010, December). Factorization machines. In 2010 IEEE International conference on data mining (pp. 995-1000). IEEE.  
 - [`RecSys / FM`](https://github.com/kpiswon/2021_DSAIL_summer_internship/tree/main/RecSys/FM)
-- [`Slide`](https://github.com/sung-won-kim/RecSys/tree/main/RecSys/FM/FM_Sungwon Kim.pdf)
+- [`Slide`](GNN/VAE/VAE,VGAE_Sungwon Kim.pdf)
 
 > ### PMF  
 Probabilistic matrix factorization. Mnih, Andriy, and Russ R. Salakhutdinov. Advances in neural information processing systems. 2008.
