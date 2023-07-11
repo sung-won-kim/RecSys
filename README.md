@@ -14,14 +14,14 @@ Graph Attention Networks. Petar Velickovic et al. ICLR (2018)
 > ### VAE  
 Kingma, Diederik P., and Max Welling. "Auto-encoding variational bayes." arXiv preprint arXiv:1312.6114 (2013)  
 - [`GNN / VAE`](https://github.com/kpiswon/2021_DSAIL_summer_internship/tree/main/GNN/VAE)  
-- [`Slide`](https://github.com/sung-won-kim/RecSys/tree/main/GNN/VAE/VAE,VGAE_Sungwon Kim.pdf)
+- [`Slide`](https://github.com/sung-won-kim/RecSys/tree/main/GNN/VAE/VAE,VGAE_SungwonKim.pdf)
 
 ---
 ##  Matrix Factorization Based RecSys  
 > ### FM
 Rendle, S. (2010, December). Factorization machines. In 2010 IEEE International conference on data mining (pp. 995-1000). IEEE.  
 - [`RecSys / FM`](https://github.com/kpiswon/2021_DSAIL_summer_internship/tree/main/RecSys/FM)
-- [`Slide`](GNN/VAE/VAE,VGAE_Sungwon Kim.pdf)
+- [`Slide`](https://github.com/sung-won-kim/RecSys/tree/main/RecSys/FM/FM_SungwonKim.pdf)
 
 > ### PMF  
 Probabilistic matrix factorization. Mnih, Andriy, and Russ R. Salakhutdinov. Advances in neural information processing systems. 2008.
